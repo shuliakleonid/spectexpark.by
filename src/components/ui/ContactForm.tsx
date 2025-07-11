@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Send, CheckCircle, AlertCircle, User, Phone, Mail, MessageSquare, Truck } from 'lucide-react'
 import { AnimatePresence } from 'framer-motion'
 
 const contactSchema = z.object({
@@ -61,126 +61,192 @@ const ContactForm = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-white rounded-2xl shadow-card p-6 lg:p-8"
+      className="bg-white dark:bg-neutral-900 rounded-3xl shadow-strong border border-neutral-200/50 dark:border-neutral-700/50 p-8 lg:p-10"
     >
-      <h3 className="text-h3 font-bold text-text-primary mb-6">Отправить заявку</h3>
+      <div className="text-center mb-8">
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow"
+        >
+          <MessageSquare className="w-8 h-8 text-white" />
+        </motion.div>
+        <h3 className="heading-3 text-neutral-900 dark:text-white mb-2">Отправить заявку</h3>
+        <p className="text-neutral-600 dark:text-neutral-400">
+          Заполните форму и мы свяжемся с вами в течение 30 минут
+        </p>
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid md:grid-cols-2 gap-6">
           {/* Name */}
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3 flex items-center gap-2">
+              <User className="w-4 h-4 text-primary" />
               Имя *
             </label>
-            <input
-              {...register('name')}
-              type="text"
-              id="name"
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                errors.name ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="Ваше имя"
-            />
+            <div className="relative">
+              <input
+                {...register('name')}
+                type="text"
+                id="name"
+                className={`input ${errors.name ? 'border-error focus:ring-error' : ''}`}
+                placeholder="Ваше имя"
+              />
+            </div>
             {errors.name && (
-              <p className="mt-1 text-sm text-red-500 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-2 text-sm text-error flex items-center gap-2"
+              >
+                <AlertCircle className="w-4 h-4" />
                 {errors.name.message}
-              </p>
+              </motion.p>
             )}
-          </div>
+          </motion.div>
 
           {/* Phone */}
-          <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-text-primary mb-2">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <label htmlFor="phone" className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3 flex items-center gap-2">
+              <Phone className="w-4 h-4 text-primary" />
               Телефон *
             </label>
-            <input
-              {...register('phone')}
-              type="tel"
-              id="phone"
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                errors.phone ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="+375 (__) ______"
-            />
+            <div className="relative">
+              <input
+                {...register('phone')}
+                type="tel"
+                id="phone"
+                className={`input ${errors.phone ? 'border-error focus:ring-error' : ''}`}
+                placeholder="+375 (__) ______"
+              />
+            </div>
             {errors.phone && (
-              <p className="mt-1 text-sm text-red-500 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-2 text-sm text-error flex items-center gap-2"
+              >
+                <AlertCircle className="w-4 h-4" />
                 {errors.phone.message}
-              </p>
+              </motion.p>
             )}
-          </div>
+          </motion.div>
         </div>
 
         {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3 flex items-center gap-2">
+            <Mail className="w-4 h-4 text-primary" />
             Email *
           </label>
-          <input
-            {...register('email')}
-            type="email"
-            id="email"
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-              errors.email ? 'border-red-500' : 'border-gray-300'
-            }`}
-            placeholder="your@email.com"
-          />
+          <div className="relative">
+            <input
+              {...register('email')}
+              type="email"
+              id="email"
+              className={`input ${errors.email ? 'border-error focus:ring-error' : ''}`}
+              placeholder="your@email.com"
+            />
+          </div>
           {errors.email && (
-            <p className="mt-1 text-sm text-red-500 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-1" />
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-2 text-sm text-error flex items-center gap-2"
+            >
+              <AlertCircle className="w-4 h-4" />
               {errors.email.message}
-            </p>
+            </motion.p>
           )}
-        </div>
+        </motion.div>
 
         {/* Equipment */}
-        <div>
-          <label htmlFor="equipment" className="block text-sm font-medium text-text-primary mb-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <label htmlFor="equipment" className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3 flex items-center gap-2">
+            <Truck className="w-4 h-4 text-primary" />
             Интересующая техника
           </label>
-          <select
-            {...register('equipment')}
-            id="equipment"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-          >
-            <option value="">Выберите автовышку</option>
-            <option value="18m">Автовышка 18м</option>
-            <option value="28m">Автовышка 28м</option>
-            <option value="both">Обе модели</option>
-            <option value="consultation">Нужна консультация</option>
-          </select>
-        </div>
+          <div className="relative">
+            <select
+              {...register('equipment')}
+              id="equipment"
+              className="input"
+            >
+              <option value="">Выберите автовышку</option>
+              <option value="18m">Автовышка 18м</option>
+              <option value="28m">Автовышка 28м</option>
+              <option value="both">Обе модели</option>
+              <option value="consultation">Нужна консультация</option>
+            </select>
+          </div>
+        </motion.div>
 
         {/* Message */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-text-primary mb-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <label htmlFor="message" className="block text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-3 flex items-center gap-2">
+            <MessageSquare className="w-4 h-4 text-primary" />
             Сообщение *
           </label>
-          <textarea
-            {...register('message')}
-            id="message"
-            rows={4}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none ${
-              errors.message ? 'border-red-500' : 'border-gray-300'
-            }`}
-            placeholder="Опишите ваши потребности, сроки, адрес работ..."
-          />
+          <div className="relative">
+            <textarea
+              {...register('message')}
+              id="message"
+              rows={4}
+              className={`textarea ${errors.message ? 'border-error focus:ring-error' : ''}`}
+              placeholder="Опишите ваши потребности, сроки, адрес работ..."
+            />
+          </div>
           {errors.message && (
-            <p className="mt-1 text-sm text-red-500 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-1" />
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-2 text-sm text-error flex items-center gap-2"
+            >
+              <AlertCircle className="w-4 h-4" />
               {errors.message.message}
-            </p>
+            </motion.p>
           )}
-        </div>
+        </motion.div>
 
         {/* Submit Button */}
         <motion.button
           type="submit"
           disabled={isSubmitting}
-          whileHover={{ scale: 1.02 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full btn-primary flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full btn-primary flex items-center justify-center gap-3 bg-gradient-primary hover:shadow-glow-lg shadow-glow disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:y-0"
         >
           {isSubmitting ? (
             <>
@@ -199,25 +265,29 @@ const ContactForm = () => {
         <AnimatePresence>
           {submitStatus === 'success' && (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="flex items-center space-x-2 p-4 bg-green-50 border border-green-200 rounded-lg"
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              className="flex items-center gap-3 p-4 bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800 rounded-2xl"
             >
-              <CheckCircle className="w-5 h-5 text-green-500" />
-              <span className="text-green-700">Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.</span>
+              <CheckCircle className="w-5 h-5 text-success-500 flex-shrink-0" />
+              <span className="text-success-700 dark:text-success-300">
+                Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
+              </span>
             </motion.div>
           )}
 
           {submitStatus === 'error' && (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="flex items-center space-x-2 p-4 bg-red-50 border border-red-200 rounded-lg"
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              className="flex items-center gap-3 p-4 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-2xl"
             >
-              <AlertCircle className="w-5 h-5 text-red-500" />
-              <span className="text-red-700">Произошла ошибка при отправке. Попробуйте еще раз или позвоните нам.</span>
+              <AlertCircle className="w-5 h-5 text-error-500 flex-shrink-0" />
+              <span className="text-error-700 dark:text-error-300">
+                Произошла ошибка при отправке. Попробуйте еще раз или позвоните нам.
+              </span>
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Phone } from 'lucide-react'
+import { ArrowDown, Phone, Sparkles, Zap } from 'lucide-react'
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -12,15 +12,54 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50">
+      {/* Modern Background Pattern */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-primary/60" />
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f3f4f6"/><circle cx="200" cy="200" r="50" fill="%23e5e7eb"/><circle cx="1000" cy="600" r="80" fill="%23d1d5db"/><rect x="400" y="300" width="200" height="100" fill="%23e5e7eb"/><polygon points="600,400 700,300 800,400" fill="%23d1d5db"/></svg>')`
+        <div className="absolute inset-0 bg-gradient-hero opacity-90" />
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+      </div>
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.div
+          animate={{ 
+            y: [0, -20, 0],
+            rotate: [0, 5, 0]
           }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+          className="absolute top-20 left-10 w-24 h-24 bg-gradient-primary rounded-full blur-xl opacity-20"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, 20, 0],
+            rotate: [0, -5, 0]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1
+          }}
+          className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-secondary rounded-full blur-xl opacity-20"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, -15, 0],
+            x: [0, 10, 0]
+          }}
+          transition={{ 
+            duration: 7, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-accent rounded-full blur-lg opacity-15"
         />
       </div>
 
@@ -30,52 +69,91 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-accent-300" />
+            <span className="text-sm font-medium text-white/90">Профессиональная аренда автовышек</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="heading-1 mb-6 leading-tight"
           >
-            АРЕНДА{' '}
-            <span className="text-accent">АВТОВЫШЕК</span>
+            <span className="text-white">АРЕНДА </span>
+            <span className="text-gradient bg-gradient-to-r from-accent-300 via-yellow-300 to-accent-400 bg-clip-text text-transparent">
+              АВТОВЫШЕК
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl mb-8 text-gray-200 font-medium"
+            className="text-xl md:text-2xl lg:text-3xl mb-12 text-white/90 font-medium max-w-3xl mx-auto leading-relaxed"
           >
-            поднимаем на высоту
+            Поднимаем на высоту ваших возможностей с современной техникой и профессиональным подходом
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="btn-primary text-lg px-8 py-4 flex items-center space-x-2"
+              className="btn-primary text-lg px-10 py-4 flex items-center gap-3 bg-gradient-primary hover:shadow-glow-lg shadow-glow"
             >
+              <Zap className="w-5 h-5" />
               <span>СВЯЗАТЬСЯ</span>
-              <Phone className="w-5 h-5" />
             </motion.button>
 
             <motion.a
               href="tel:+375447648181"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary text-lg px-8 py-4 flex items-center space-x-2"
+              className="btn-secondary text-lg px-10 py-4 flex items-center gap-3 border-2 border-white/30 text-white hover:bg-white hover:text-primary shadow-soft hover:shadow-medium"
             >
-              <span>+375(44)7648181</span>
               <Phone className="w-5 h-5" />
+              <span>+375(44)7648181</span>
             </motion.a>
+          </motion.div>
+
+          {/* Features */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          >
+            {[
+              { icon: '🚀', title: 'Быстро', desc: 'Доставка в течение 2 часов' },
+              { icon: '🛡️', title: 'Надежно', desc: 'Сертифицированная техника' },
+              { icon: '💰', title: 'Доступно', desc: 'Конкурентные цены' }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                className="glass rounded-2xl p-6 text-center hover-lift"
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-semibold mb-2 text-white">{feature.title}</h3>
+                <p className="text-white/80 text-sm">{feature.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
@@ -84,13 +162,13 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center space-y-2 text-white cursor-pointer"
+          className="flex flex-col items-center gap-3 text-white/80 cursor-pointer hover:text-white transition-colors"
           onClick={() => {
             const element = document.querySelector('#about')
             if (element) {
@@ -99,13 +177,15 @@ const Hero = () => {
           }}
         >
           <span className="text-sm font-medium">Узнать больше</span>
-          <ArrowDown className="w-6 h-6" />
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-white/60 rounded-full mt-2"
+            />
+          </div>
         </motion.div>
       </motion.div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-secondary/20 rounded-full blur-xl" />
     </section>
   )
 }
