@@ -1,0 +1,251 @@
+'use client'
+
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react'
+
+const Gallery = () => {
+  const [currentImage, setCurrentImage] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const images = [
+    {
+      id: 1,
+      src: '/api/placeholder/600/400',
+      alt: 'Автовышка 18м в работе',
+      title: 'Автовышка 18м',
+      description: 'Работы по мойке фасада здания'
+    },
+    {
+      id: 2,
+      src: '/api/placeholder/600/400',
+      alt: 'Автовышка 28м на строительной площадке',
+      title: 'Автовышка 28м',
+      description: 'Монтажные работы на высоте'
+    },
+    {
+      id: 3,
+      src: '/api/placeholder/600/400',
+      alt: 'Команда на автовышке',
+      title: 'Наша команда',
+      description: 'Профессиональные операторы'
+    },
+    {
+      id: 4,
+      src: '/api/placeholder/600/400',
+      alt: 'Автовышка в городской среде',
+      title: 'Городские работы',
+      description: 'Работы в центре города'
+    },
+    {
+      id: 5,
+      src: '/api/placeholder/600/400',
+      alt: 'Техническое обслуживание',
+      title: 'Обслуживание техники',
+      description: 'Регулярное ТО оборудования'
+    },
+    {
+      id: 6,
+      src: '/api/placeholder/600/400',
+      alt: 'Завершенный проект',
+      title: 'Результат работы',
+      description: 'Качественно выполненные работы'
+    }
+  ]
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length)
+  }
+
+  const openModal = (index: number) => {
+    setCurrentImage(index)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
+
+  return (
+    <section id="gallery" className="section-padding bg-neutral-light">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-h2 font-bold text-text-primary mb-6">
+            <span className="text-primary">ГАЛЛЕРЕЯ</span> РАБОТ
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            Посмотрите на наши автовышки в действии и примеры выполненных работ. 
+            Качество и профессионализм в каждой детали.
+          </p>
+        </motion.div>
+
+        {/* Desktop Gallery */}
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-3 gap-6">
+            {images.map((image, imageIndex) => (
+              <motion.div
+                key={image.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: imageIndex * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="relative group cursor-pointer overflow-hidden rounded-xl"
+                onClick={() => openModal(imageIndex)}
+              >
+                <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Maximize2 className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-secondary">{image.title}</h3>
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <Maximize2 className="w-8 h-8 mx-auto mb-2" />
+                    <p className="text-sm">Нажмите для просмотра</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Gallery */}
+        <div className="lg:hidden">
+          <div className="relative">
+            <div className="overflow-hidden rounded-xl">
+              <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
+                {images.map((image) => (
+                  <div key={image.id} className="w-full flex-shrink-0">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
+                      <div className="text-center p-6">
+                        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Maximize2 className="w-10 h-10 text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-secondary mb-2">{image.title}</h3>
+                        <p className="text-text-secondary">{image.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentImage ? 'bg-primary' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <ChevronLeft className="w-6 h-6 text-secondary" />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <ChevronRight className="w-6 h-6 text-secondary" />
+            </button>
+          </div>
+        </div>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {isModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+              onClick={closeModal}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="relative">
+                  <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Maximize2 className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-secondary mb-3">
+                        {images[currentImage].title}
+                      </h3>
+                      <p className="text-lg text-text-secondary">
+                        {images[currentImage].description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={closeModal}
+                    className="absolute top-4 right-4 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <X className="w-6 h-6 text-secondary" />
+                  </button>
+
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-secondary" />
+                  </button>
+
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center shadow-lg"
+                  >
+                    <ChevronRight className="w-6 h-6 text-secondary" />
+                  </button>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex justify-center space-x-2">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImage(index)}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          index === currentImage ? 'bg-primary' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  )
+}
+
+export default Gallery 
