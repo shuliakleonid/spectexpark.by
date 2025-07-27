@@ -68,7 +68,7 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="heading-2 text-neutral-900 dark:text-white mb-6">
-            Отзывы наших клиентов
+            <span className="text-primary">ОТЗЫВЫ</span> НАШИХ КЛИЕНТОВ
           </h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
             Мы гордимся доверием наших клиентов и стремимся поддерживать высокий уровень качества услуг
@@ -85,7 +85,7 @@ const Testimonials = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-white dark:bg-neutral-800 rounded-3xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border border-neutral-200/50 dark:border-neutral-700/50 relative">
+              <div className="bg-white dark:bg-neutral-800 rounded-3xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 border border-neutral-200/50 dark:border-neutral-700/50 relative h-full flex flex-col">
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6 text-primary/20 group-hover:text-primary/30 transition-colors">
                   <Quote className="w-8 h-8" />
@@ -99,8 +99,8 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-neutral-700 dark:text-neutral-300 mb-6 leading-relaxed">
-                  "{testimonial.text}"
+                <p className="text-neutral-700 dark:text-neutral-300 mb-6 leading-relaxed flex-grow">
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
 
                 {/* Author */}
@@ -146,7 +146,7 @@ const Testimonials = () => {
                   element.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
-              className="btn-primary bg-white text-accent-600 hover:bg-neutral-100 shadow-glow hover:shadow-glow-lg"
+              className="px-8 py-4 bg-white text-accent-600 font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:bg-neutral-50 transition-all duration-300 border-2 border-white/20 hover:border-white/40"
             >
               Оставить заявку
             </motion.button>

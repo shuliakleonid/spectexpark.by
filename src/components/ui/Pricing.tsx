@@ -98,7 +98,7 @@ const Pricing = () => {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-gradient-to-r from-accent-500 to-warning-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-glow">
+                  <span className="bg-gradient-to-r from-accent-500 to-warning-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-glow whitespace-nowrap">
                     Популярный выбор
                   </span>
                 </div>
@@ -111,21 +111,21 @@ const Pricing = () => {
               }`}>
                 {/* Header */}
                 <div className="text-center mb-8">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${plan.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow`}>
-                    <plan.icon className="w-8 h-8 text-white" />
+                  <div className={`w-20 h-20 bg-gradient-to-br ${plan.color} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-glow`}>
+                    <plan.icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-2">
+                  <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3">
                     {plan.name}
                   </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-6">
+                  <p className="text-neutral-600 dark:text-neutral-400 mb-8 text-sm leading-relaxed">
                     {plan.description}
                   </p>
                   
                   {/* Price */}
-                  <div className="mb-6">
-                    <div className="text-4xl font-bold text-neutral-900 dark:text-white">
+                  <div className="mb-8">
+                    <div className="text-5xl font-bold text-neutral-900 dark:text-white mb-2">
                       {plan.price}
-                      <span className="text-lg font-normal text-neutral-600 dark:text-neutral-400">
+                      <span className="text-xl font-normal text-neutral-600 dark:text-neutral-400">
                         /{plan.period}
                       </span>
                     </div>
@@ -141,12 +141,12 @@ const Pricing = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-3"
+                      className="flex items-start gap-3"
                     >
-                      <div className="w-5 h-5 bg-success-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-6 h-6 bg-success-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-white" />
                       </div>
-                      <span className="text-neutral-700 dark:text-neutral-300">
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm leading-relaxed">
                         {feature}
                       </span>
                     </motion.li>
@@ -165,8 +165,8 @@ const Pricing = () => {
                   }}
                   className={`w-full py-4 px-6 rounded-2xl font-semibold transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-accent-500 to-warning-500 text-white shadow-glow hover:shadow-glow-lg'
-                      : 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-soft hover:shadow-medium'
+                      ? 'bg-gradient-to-r from-accent-500 to-warning-500 text-white shadow-glow hover:shadow-glow-lg hover:from-accent-600 hover:to-warning-600'
+                      : 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-soft hover:shadow-medium hover:from-primary-600 hover:to-secondary-600'
                   }`}
                 >
                   Заказать {plan.name}
@@ -185,10 +185,10 @@ const Pricing = () => {
           className="mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-success-500 to-info-500 rounded-3xl p-8 lg:p-12 shadow-glow">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-6">
               Нужна консультация по ценам?
             </h3>
-            <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/90 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
               Свяжитесь с нами для получения индивидуального расчета стоимости аренды автовышки
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -201,7 +201,7 @@ const Pricing = () => {
                     element.scrollIntoView({ behavior: 'smooth' })
                   }
                 }}
-                className="btn-primary bg-white text-success-600 hover:bg-neutral-100 shadow-glow hover:shadow-glow-lg"
+                className="px-8 py-4 bg-white text-success-600 font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:bg-neutral-50 transition-all duration-300 border-2 border-white/20 hover:border-white/40"
               >
                 Получить расчет
               </motion.button>
@@ -209,7 +209,7 @@ const Pricing = () => {
                 href="tel:+375447648181"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-secondary border-white text-white hover:bg-white hover:text-success-600 shadow-glow hover:shadow-glow-lg"
+                className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:bg-white hover:text-success-600 transition-all duration-300"
               >
                 Позвонить для уточнения
               </motion.a>

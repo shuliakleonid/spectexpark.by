@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowUp, Phone, Calendar, MapPin } from 'lucide-react'
+import { Phone, Calendar, MapPin } from 'lucide-react'
 
 const Equipment = () => {
   const equipment = [
@@ -17,7 +17,7 @@ const Equipment = () => {
         'Время развертывания: 5-7 минут',
         'Подходит для: мойки окон, монтажа, обслуживания'
       ],
-      image: '/api/placeholder/400/300',
+      image: '/images/equipment/auto_18-1.jpg',
       price: 'от 50 BYN/час'
     },
     {
@@ -32,7 +32,7 @@ const Equipment = () => {
         'Время развертывания: 7-10 минут',
         'Подходит для: высотных работ, строительства, монтажа'
       ],
-      image: '/api/placeholder/400/300',
+      image: '/images/equipment/auto_28-1.jpg',
       price: 'от 80 BYN/час'
     }
   ]
@@ -74,15 +74,12 @@ const Equipment = () => {
               className="card-equipment"
             >
               {/* Image */}
-              <div className="relative h-64 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-xl mb-6">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <ArrowUp className="w-12 h-12 text-white" />
-                    </div>
-                    <h3 className="text-4xl font-bold text-secondary">{item.height}</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-xl mb-6 overflow-hidden">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {item.price}
                 </div>
@@ -107,73 +104,10 @@ const Equipment = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={scrollToContact}
-                    className="btn-primary flex-1 flex items-center justify-center space-x-2"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>СВЯЗАТЬСЯ</span>
-                  </motion.button>
-                  
-                  <motion.a
-                    href="tel:+375447648181"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-secondary flex-1 flex items-center justify-center space-x-2"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>Позвонить</span>
-                  </motion.a>
-                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-secondary to-primary rounded-2xl p-8 text-white"
-        >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-3">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <Calendar className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Гибкий график</h4>
-                <p className="text-sm opacity-90">Работаем 24/7 по вашему расписанию</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center space-y-3">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <MapPin className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">По всей Беларуси</h4>
-                <p className="text-sm opacity-90">Доставляем технику в любую точку страны</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center space-y-3">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <Phone className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg mb-1">Быстрый ответ</h4>
-                <p className="text-sm opacity-90">Отвечаем на звонки в течение 5 минут</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

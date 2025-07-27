@@ -4,54 +4,41 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react'
 
+const images = [
+  {
+    id: 1,
+    src: '/images/gallery/auto_18-1.jpg',
+    alt: 'Автовышка 18м в работе',
+    title: 'Автовышка 18м',
+    description: 'Работы по мойке фасада здания'
+  },
+  {
+    id: 2,
+    src: '/images/gallery/auto_18-2.jpg',
+    alt: 'Автовышка 18м на строительной площадке',
+    title: 'Автовышка 18м',
+    description: 'Монтажные работы на высоте'
+  },
+  {
+    id: 3,
+    src: '/images/gallery/auto_28-1.jpg',
+    alt: 'Автовышка 28м в работе',
+    title: 'Автовышка 28м',
+    description: 'Профессиональные операторы за работой'
+  },
+  {
+    id: 4,
+    src: '/images/gallery/auto_28-2.jpg',
+    alt: 'Автовышка 28м в городской среде',
+    title: 'Автовышка 28м',
+    description: 'Работы в центре города'
+  }
+]
+
 const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const images = [
-    {
-      id: 1,
-      src: '/api/placeholder/600/400',
-      alt: 'Автовышка 18м в работе',
-      title: 'Автовышка 18м',
-      description: 'Работы по мойке фасада здания'
-    },
-    {
-      id: 2,
-      src: '/api/placeholder/600/400',
-      alt: 'Автовышка 28м на строительной площадке',
-      title: 'Автовышка 28м',
-      description: 'Монтажные работы на высоте'
-    },
-    {
-      id: 3,
-      src: '/api/placeholder/600/400',
-      alt: 'Команда на автовышке',
-      title: 'Наша команда',
-      description: 'Профессиональные операторы'
-    },
-    {
-      id: 4,
-      src: '/api/placeholder/600/400',
-      alt: 'Автовышка в городской среде',
-      title: 'Городские работы',
-      description: 'Работы в центре города'
-    },
-    {
-      id: 5,
-      src: '/api/placeholder/600/400',
-      alt: 'Техническое обслуживание',
-      title: 'Обслуживание техники',
-      description: 'Регулярное ТО оборудования'
-    },
-    {
-      id: 6,
-      src: '/api/placeholder/600/400',
-      alt: 'Завершенный проект',
-      title: 'Результат работы',
-      description: 'Качественно выполненные работы'
-    }
-  ]
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length)
@@ -71,7 +58,7 @@ const Gallery = () => {
   }
 
   return (
-    <section id="gallery" className="section-padding bg-neutral-light">
+    <section id="gallery" className="section-padding bg-neutral-light pb-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -103,14 +90,11 @@ const Gallery = () => {
                 className="relative group cursor-pointer overflow-hidden rounded-xl"
                 onClick={() => openModal(imageIndex)}
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                      <Maximize2 className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="font-semibold text-secondary">{image.title}</h3>
-                  </div>
-                </div>
+                <img 
+                  src={image.src} 
+                  alt={image.alt} 
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-white text-center">
                     <Maximize2 className="w-8 h-8 mx-auto mb-2" />
@@ -129,15 +113,11 @@ const Gallery = () => {
               <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
                 {images.map((image) => (
                   <div key={image.id} className="w-full flex-shrink-0">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
-                      <div className="text-center p-6">
-                        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Maximize2 className="w-10 h-10 text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-secondary mb-2">{image.title}</h3>
-                        <p className="text-text-secondary">{image.description}</p>
-                      </div>
-                    </div>
+                    <img 
+                      src={image.src} 
+                      alt={image.alt} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 ))}
               </div>
@@ -190,19 +170,11 @@ const Gallery = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Maximize2 className="w-12 h-12 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-secondary mb-3">
-                        {images[currentImage].title}
-                      </h3>
-                      <p className="text-lg text-text-secondary">
-                        {images[currentImage].description}
-                      </p>
-                    </div>
-                  </div>
+                  <img 
+                    src={images[currentImage].src} 
+                    alt={images[currentImage].alt} 
+                    className="w-full h-full object-cover"
+                  />
 
                   <button
                     onClick={closeModal}
