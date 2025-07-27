@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, Sparkles } from 'lucide-react'
-import ThemeToggle from '../ui/ThemeToggle'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -88,12 +88,11 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-6">
             <motion.a
               href="tel:+375447648181"
-              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-primary text-white rounded-xl shadow-glow hover:shadow-glow-lg transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-primary text-white rounded-xl shadow-glow transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
-              <span className="font-semibold text-sm">+375(44)7648181</span>
+              <span className="font-bold text-sm tracking-wide">+375(44)7648181</span>
             </motion.a>
             <ThemeToggle />
           </div>
@@ -146,7 +145,7 @@ const Header = () => {
                   <motion.a
                     href="tel:+375447648181"
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-4 py-3 bg-gradient-primary text-white rounded-xl shadow-glow"
+                    className="flex items-center gap-3 px-4 py-3 bg-gradient-primary text-white rounded-xl shadow-glow transition-all duration-300"
                   >
                     <Phone className="w-5 h-5" />
                     <span className="font-semibold">+375(44)7648181</span>

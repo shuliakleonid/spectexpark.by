@@ -3,32 +3,33 @@
 import { motion } from 'framer-motion'
 import { Clock, Users, Award, Shield } from 'lucide-react'
 
+const features = [
+  {
+    icon: Clock,
+    title: '24/7 Обслуживание',
+    description: 'Работаем круглосуточно для вашего удобства'
+  },
+  {
+    icon: Award,
+    title: '10+ Лет Опыта',
+    description: 'Более десяти лет успешной работы на рынке'
+  },
+  {
+    icon: Users,
+    title: 'Для Всех Клиентов',
+    description: 'Строительные компании, малый бизнес, частные лица'
+  },
+  {
+    icon: Shield,
+    title: 'Высокое Качество',
+    description: 'Конкурентные цены при отличном качестве услуг'
+  }
+]
+
 const About = () => {
-  const features = [
-    {
-      icon: Clock,
-      title: '24/7 Обслуживание',
-      description: 'Работаем круглосуточно для вашего удобства'
-    },
-    {
-      icon: Award,
-      title: '10+ Лет Опыта',
-      description: 'Более десяти лет успешной работы на рынке'
-    },
-    {
-      icon: Users,
-      title: 'Для Всех Клиентов',
-      description: 'Строительные компании, малый бизнес, частные лица'
-    },
-    {
-      icon: Shield,
-      title: 'Высокое Качество',
-      description: 'Конкурентные цены при отличном качестве услуг'
-    }
-  ]
 
   return (
-    <section id="about" className="section-padding bg-neutral-light">
+    <section id="about" className="section-padding bg-neutral-light pt-20">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowDown, Phone, Sparkles, Zap } from 'lucide-react'
+import { Phone, Sparkles, Zap } from 'lucide-react'
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -113,7 +113,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="btn-primary text-lg px-10 py-4 flex items-center gap-3 bg-gradient-primary hover:shadow-glow-lg shadow-glow"
+              className="btn-primary text-lg px-10 py-4 flex items-center gap-3 bg-gradient-primary hover:shadow-glow-lg shadow-glow rounded-2xl"
             >
               <Zap className="w-5 h-5" />
               <span>СВЯЗАТЬСЯ</span>
@@ -123,7 +123,7 @@ const Hero = () => {
               href="tel:+375447648181"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary text-lg px-10 py-4 flex items-center gap-3 border-2 border-white/30 text-white hover:bg-white hover:text-primary shadow-soft hover:shadow-medium"
+              className="btn-secondary text-lg px-10 py-4 flex items-center gap-3 border-2 border-white/30 text-white hover:bg-gradient-primary hover:text-white hover:border-primary-400/60 shadow-soft hover:shadow-glow-lg transition-all duration-300 rounded-2xl"
             >
               <Phone className="w-5 h-5" />
               <span>+375(44)7648181</span>
