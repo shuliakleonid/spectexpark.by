@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone, Sparkles } from 'lucide-react'
-import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,6 +16,24 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
+    
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'hidden'
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
   const menuItems = [
     { name: 'О НАС', href: '#about' },
     { name: 'ВЫШКИ В НАЛИЧИИ', href: '#equipment' },
@@ -25,12 +42,37 @@ const Header = () => {
   ]
 
   const scrollToSection = (href: string) => {
+    console.log('Attempting to scroll to:', href)
     const element = document.querySelector(href)
+    console.log('Found element:', element)
+    
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Добавляем небольшую задержку для корректной работы анимации
+      setTimeout(() => {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }, 100)
+      setIsMenuOpen(false)
+    } else {
+      console.warn(`Element with selector ${href} not found`)
+      // Попробуем найти элемент без #
+      const elementWithoutHash = document.querySelector(href.substring(1))
+      if (elementWithoutHash) {
+        console.log('Found element without hash:', elementWithoutHash)
+        setTimeout(() => {
+          elementWithoutHash.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }, 100)
+        setIsMenuOpen(false)
+      }
     }
-    setIsMenuOpen(false)
   }
+
+
 
   return (
     <motion.header
@@ -94,7 +136,7 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span className="font-bold text-sm tracking-wide">+375(44)7648181</span>
             </motion.a>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -121,7 +163,7 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border-t border-neutral-200/50 dark:border-neutral-700/50"
           >
-            <div className="container-custom py-6">
+            <div className="container-custom py-6" onClick={(e) => e.stopPropagation()}>
               <nav className="flex flex-col gap-4">
                 {menuItems.map((item, index) => (
                   <motion.button
@@ -130,7 +172,10 @@ const Header = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => scrollToSection(item.href)}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      scrollToSection(item.href)
+                    }}
                     className="text-left text-neutral-700 dark:text-neutral-300 hover:text-primary dark:hover:text-primary font-medium transition-colors duration-300 py-3 px-4 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   >
                     {item.name}
@@ -145,7 +190,8 @@ const Header = () => {
                   <motion.a
                     href="tel:+375447648181"
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-4 py-3 bg-gradient-primary text-white rounded-xl shadow-glow transition-all duration-300"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-3 px-4 py-3 bg-gradient-primary text-white rounded-xl shadow-glow"
                   >
                     <Phone className="w-5 h-5" />
                     <span className="font-semibold">+375(44)7648181</span>

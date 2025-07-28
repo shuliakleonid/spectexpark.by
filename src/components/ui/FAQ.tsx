@@ -147,7 +147,7 @@ const FAQ = () => {
                     element.scrollIntoView({ behavior: 'smooth' })
                   }
                 }}
-                className="btn-primary bg-white text-info-600 hover:bg-neutral-100 shadow-glow hover:shadow-glow-lg"
+                className="px-8 py-4 bg-white text-info-600 font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:bg-neutral-50 transition-all duration-300 border-2 border-white/20 hover:border-white/40"
               >
                 Задать вопрос
               </motion.button>
@@ -155,7 +155,7 @@ const FAQ = () => {
                 href="tel:+375447648181"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-secondary border-white text-white hover:bg-white hover:text-info-600 shadow-glow hover:shadow-glow-lg"
+                className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:bg-white hover:text-info-600 transition-all duration-300"
               >
                 Позвонить сейчас
               </motion.a>

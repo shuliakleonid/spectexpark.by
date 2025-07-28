@@ -61,7 +61,7 @@ const ContactForm = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="bg-white dark:bg-neutral-900 rounded-3xl shadow-strong border border-neutral-200/50 dark:border-neutral-700/50 p-8 lg:p-10"
+      className="bg-white dark:bg-neutral-900 rounded-3xl shadow-glow border border-neutral-200/50 dark:border-neutral-700/50 p-8 lg:p-12"
     >
       <div className="text-center mb-8">
         <motion.div
@@ -69,9 +69,9 @@ const ContactForm = () => {
           whileInView={{ scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow"
+          className="w-20 h-20 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-glow"
         >
-          <MessageSquare className="w-8 h-8 text-white" />
+          <MessageSquare className="w-10 h-10 text-white" />
         </motion.div>
         <h3 className="heading-3 text-neutral-900 dark:text-white mb-2">Отправить заявку</h3>
         <p className="text-neutral-600 dark:text-neutral-400">
@@ -105,7 +105,7 @@ const ContactForm = () => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-error flex items-center gap-2"
+                className="mt-2 text-sm text-error flex items-center gap-2 font-medium"
               >
                 <AlertCircle className="w-4 h-4" />
                 {errors.name.message}
@@ -137,7 +137,7 @@ const ContactForm = () => {
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-2 text-sm text-error flex items-center gap-2"
+                className="mt-2 text-sm text-error flex items-center gap-2 font-medium"
               >
                 <AlertCircle className="w-4 h-4" />
                 {errors.phone.message}
@@ -170,7 +170,7 @@ const ContactForm = () => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 text-sm text-error flex items-center gap-2"
+              className="mt-2 text-sm text-error flex items-center gap-2 font-medium"
             >
               <AlertCircle className="w-4 h-4" />
               {errors.email.message}
@@ -228,7 +228,7 @@ const ContactForm = () => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-2 text-sm text-error flex items-center gap-2"
+              className="mt-2 text-sm text-error flex items-center gap-2 font-medium"
             >
               <AlertCircle className="w-4 h-4" />
               {errors.message.message}
@@ -246,7 +246,7 @@ const ContactForm = () => {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full btn-primary flex items-center justify-center gap-3 bg-gradient-primary hover:shadow-glow-lg shadow-glow disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:y-0"
+          className="w-full py-4 px-8 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:y-0 flex items-center justify-center gap-3"
         >
           {isSubmitting ? (
             <>
@@ -268,7 +268,7 @@ const ContactForm = () => {
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              className="flex items-center gap-3 p-4 bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800 rounded-2xl"
+              className="flex items-center gap-3 p-6 bg-success-50 dark:bg-success-900/20 border-2 border-success-200 dark:border-success-800 rounded-2xl shadow-soft"
             >
               <CheckCircle className="w-5 h-5 text-success-500 flex-shrink-0" />
               <span className="text-success-700 dark:text-success-300">
@@ -282,7 +282,7 @@ const ContactForm = () => {
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
-              className="flex items-center gap-3 p-4 bg-error-50 dark:bg-error-900/20 border border-error-200 dark:border-error-800 rounded-2xl"
+              className="flex items-center gap-3 p-6 bg-error-50 dark:bg-error-900/20 border-2 border-error-200 dark:border-error-800 rounded-2xl shadow-soft"
             >
               <AlertCircle className="w-5 h-5 text-error-500 flex-shrink-0" />
               <span className="text-error-700 dark:text-error-300">

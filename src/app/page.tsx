@@ -15,17 +15,19 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950">
       <Header />
-      <Hero />
-      <div className="relative">
-        <About />
-        <Stats />
-        <Features />
-        <Equipment />
-        <Pricing />
-        <Gallery />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+      <div className="pt-20">
+        <Hero />
+        <div className="relative">
+          <About />
+          <Stats />
+          <Features />
+          <Equipment />
+          <Pricing />
+          <Gallery />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </div>
       </div>
       <Footer />
     </main>

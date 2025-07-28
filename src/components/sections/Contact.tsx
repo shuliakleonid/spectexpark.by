@@ -135,41 +135,6 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-
-            {/* Map Placeholder */}
-            <div className="bg-neutral-light rounded-xl p-8 text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-8 h-8 text-primary" />
-              </div>
-              <h4 className="font-semibold text-text-primary mb-2">Наше местоположение</h4>
-              <p className="text-text-secondary mb-4">
-                д. Боровляны пер Школьный д 5
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary"
-              >
-                Открыть карту
-              </motion.button>
-            </div>
-
-            {/* Quick Contact */}
-            <div className="bg-gradient-to-r from-secondary to-primary rounded-xl p-6 text-white">
-              <h4 className="text-xl font-bold mb-3">Нужна срочная помощь?</h4>
-              <p className="mb-4 opacity-90">
-                Звоните прямо сейчас - мы работаем 24/7 и готовы помочь в любое время!
-              </p>
-              <motion.a
-                href="tel:+375447648181"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 bg-white text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                <Phone className="w-5 h-5" />
-                <span>+375(44)7648181</span>
-              </motion.a>
-            </div>
           </motion.div>
 
           {/* Contact Form */}
