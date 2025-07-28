@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react'
+import Image from 'next/image'
 
 const images = [
   {
@@ -90,10 +91,11 @@ const Gallery = () => {
                 className="relative group cursor-pointer overflow-hidden rounded-xl"
                 onClick={() => openModal(imageIndex)}
               >
-                <img 
+                <Image 
                   src={image.src} 
                   alt={image.alt} 
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-white text-center">
@@ -112,13 +114,14 @@ const Gallery = () => {
             <div className="overflow-hidden rounded-xl">
               <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentImage * 100}%)` }}>
                 {images.map((image) => (
-                  <div key={image.id} className="w-full flex-shrink-0">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                                  <div key={image.id} className="w-full flex-shrink-0 relative h-64">
+                  <Image 
+                    src={image.src} 
+                    alt={image.alt} 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 ))}
               </div>
             </div>
@@ -169,11 +172,12 @@ const Gallery = () => {
                 className="relative max-w-4xl w-full bg-white rounded-xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="relative">
-                  <img 
+                <div className="relative h-96">
+                  <Image 
                     src={images[currentImage].src} 
                     alt={images[currentImage].alt} 
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
 
                   <button

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, Calendar, MapPin } from 'lucide-react'
+import Image from 'next/image'
 
 const Equipment = () => {
   const equipment = [
@@ -37,12 +37,7 @@ const Equipment = () => {
     }
   ]
 
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+
 
   return (
     <section id="equipment" className="section-padding bg-white">
@@ -75,10 +70,11 @@ const Equipment = () => {
             >
               {/* Image */}
               <div className="relative h-64 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-xl mb-6 overflow-hidden">
-                <img 
+                <Image 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {item.price}
