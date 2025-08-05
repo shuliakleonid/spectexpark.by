@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Phone, Sparkles } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
+import Image from 'next/image'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -92,17 +93,22 @@ const Header = () => {
             className="flex items-center gap-3"
           >
             <div className="relative">
-              <div className="w-12 h-12 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-glow">
-                <Sparkles className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden">
+                <Image 
+                  src="/images/spectexpark-logo.svg" 
+                  alt="SPECTEXPARK Logo" 
+                  width={48} 
+                  height={48}
+                  className="object-contain"
+                />
               </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent-500 rounded-full animate-pulse" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gradient-primary">
                 AVTOVYSHKA.BY
               </span>
               <span className="text-xs text-neutral-500 dark:text-neutral-400">
-                Профессиональная аренда
+                Ваши задачи - наша высота
               </span>
             </div>
           </motion.div>

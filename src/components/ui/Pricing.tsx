@@ -17,7 +17,7 @@ interface PricingPlan {
 const pricingPlans: PricingPlan[] = [
   {
     name: 'Автовышка 18м',
-    price: '50',
+    price: '70',
     period: 'руб/час',
     description: 'Идеально подходит для работ на средней высоте',
     features: [
@@ -33,7 +33,7 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Автовышка 28м',
-    price: '70',
+    price: '100',
     period: 'руб/час',
     description: 'Мощная техника для сложных высотных работ',
     features: [
@@ -51,7 +51,7 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     name: 'Срочный выезд',
-    price: '100',
+    price: '120',
     period: 'руб/час',
     description: 'Экстренная помощь в любое время суток',
     features: [
@@ -126,7 +126,7 @@ const Pricing = () => {
                     <div className="text-5xl font-bold text-neutral-900 dark:text-white mb-2">
                       {plan.price}
                       <span className="text-xl font-normal text-neutral-600 dark:text-neutral-400">
-                        /{plan.period}
+                        {plan.period}
                       </span>
                     </div>
                   </div>
