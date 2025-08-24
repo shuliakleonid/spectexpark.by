@@ -7,8 +7,8 @@ WORKDIR /app
 # Копируем package.json и package-lock.json
 COPY package*.json ./
 
-# Устанавливаем зависимости
-RUN npm ci --only=production
+# Устанавливаем все зависимости (включая devDependencies для билда)
+RUN npm ci
 
 # Копируем исходный код
 COPY . .
@@ -19,7 +19,7 @@ RUN npm run build
 # Второй этап - создаем легкий образ для продакшена
 FROM nginx:alpine
 
-# Копируем собранные файлы
+# Копируем собранные файлы (правильный путь для Next.js export)
 COPY --from=base /app/out /usr/share/nginx/html
 
 # Копируем nginx конфигурацию

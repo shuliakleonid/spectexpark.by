@@ -13,7 +13,6 @@ out
 *.log
 logs
 ssl
-nginx-*.conf
 docker-compose.yml
 Dockerfile
 .dockerignore
