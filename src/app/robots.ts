@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://avtovyshka.by/sitemap.xml',
+    sitemap: 'https://spectexpark.by/sitemap.xml',
   }
 } 

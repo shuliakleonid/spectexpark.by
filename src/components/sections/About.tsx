@@ -63,7 +63,7 @@ const About = () => {
             
             <div className="space-y-4 text-text-secondary">
               <p>
-                Компания <strong className="text-secondary">AVTOVYSHKA.BY</strong> предлагает 
+                Компания <strong className="text-secondary">SPECTEXPARK.BY</strong> предлагает 
                 профессиональные услуги по аренде автовышек различной высоты. Мы работаем 
                 с 2014 года и за это время заслужили доверие сотен клиентов.
               </p>
@@ -153,11 +153,11 @@ const About = () => {
             </div>
             <div>
               <h4 className="font-bold text-secondary text-lg mb-2">Email</h4>
-              <a 
-                href="mailto:avtovishki.arenda@gmail.com"
+              <a
+                href="mailto:spectexpark.arenda@gmail.com"
                 className="text-primary hover:text-accent transition-colors"
               >
-                avtovishki.arenda@gmail.com
+                spectexpark.arenda@gmail.com
               </a>
             </div>
           </div>

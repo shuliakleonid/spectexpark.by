@@ -5,31 +5,31 @@ export const dynamic = 'force-static'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://avtovyshka.by',
+      url: 'https://spectexpark.by',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://avtovyshka.by/#about',
+      url: 'https://spectexpark.by/#about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://avtovyshka.by/#equipment',
+      url: 'https://spectexpark.by/#equipment',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://avtovyshka.by/#gallery',
+      url: 'https://spectexpark.by/#gallery',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
-      url: 'https://avtovyshka.by/#contact',
+      url: 'https://spectexpark.by/#contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,

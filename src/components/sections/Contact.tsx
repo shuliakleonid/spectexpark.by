@@ -16,8 +16,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'avtovishki.arenda@gmail.com',
-      href: 'mailto:avtovishki.arenda@gmail.com',
+      value: 'spectexpark.arenda@gmail.com',
+      href: 'mailto:spectexpark.arenda@gmail.com',
       description: 'Пишите нам'
     },
     {

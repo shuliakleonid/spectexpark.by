@@ -1,4 +1,4 @@
-# AVTOVYSHKA.BY - Сайт аренды автовышек
+# SPECTEXPARK.BY - Сайт аренды автовышек
 
 Современный веб-сайт для компании AVTOVYSHKA.BY, специализирующейся на аренде автовышек в Беларуси.
 
@@ -132,9 +132,9 @@ npm start
 Создайте файл `.env.local`:
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://avtovyshka.by
+NEXT_PUBLIC_SITE_URL=https://spectexpark.by
 NEXT_PUBLIC_PHONE=+375447648181
-NEXT_PUBLIC_EMAIL=avtovishki.arenda@gmail.com
+NEXT_PUBLIC_EMAIL=spectexpark.arenda@gmail.com
 ```
 
 ### Изменение контента
@@ -183,7 +183,7 @@ NEXT_PUBLIC_EMAIL=avtovishki.arenda@gmail.com
 ## 📞 Поддержка
 
 Для вопросов и поддержки:
-- Email: avtovishki.arenda@gmail.com
+- Email: spectexpark.arenda@gmail.com
 - Телефон: +375(44)7648181
 
 ## 📄 Лицензия
