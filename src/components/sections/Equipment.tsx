@@ -31,10 +31,9 @@ const Equipment = () => {
         'Угол поворота: 360°'
       ],
       images: [
-        '/images/equipment/auto_18-1.jpg',
+        '/images/equipment/auto_18-1.jpeg',
         '/images/equipment/auto_18-2.jpg',
-        '/images/equipment/auto_18-3.jpeg',
-        '/images/equipment/auto_18-4.jpeg'
+        '/images/equipment/auto_18-3.jpeg'
       ],
       price: 'от 70 BYN/час'
     },
@@ -50,11 +49,9 @@ const Equipment = () => {
         'Угол поворота: 360°'
       ],
       images: [
-        '/images/equipment/auto_28-1.jpg',
-        '/images/equipment/auto_28-2.jpg',
-        '/images/equipment/auto_28-3.jpeg',
-        '/images/equipment/auto_28-4.jpeg',
-        '/images/equipment/auto_28-5.jpeg'
+        '/images/equipment/auto_28-1.jpeg',
+        '/images/equipment/auto_28-2.jpeg',
+        '/images/equipment/auto_28-3.jpeg'
       ],
       price: 'от 100 BYN/час'
     }
