@@ -45,7 +45,7 @@ const StagewiseWrapper = () => {
                   className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full"
                 />
               </div>
-              <h2 className="text-2xl font-bold text-white mb-2">AVTOVYSHKA.BY</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">SPECTEXPARK.BY</h2>
               <p className="text-white/80">Загрузка...</p>
             </motion.div>
 

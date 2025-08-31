@@ -5,7 +5,7 @@ import StagewiseWrapper from '../components/ui/StagewiseWrapper'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'AVTOVYSHKA.BY - Аренда автовышек в Минске',
+  title: 'SPECTEXPARK.BY - Аренда автовышек в Минске',
   description: 'Профессиональная аренда автовышек в Минске и Минской области. Быстро, надежно, доступно.',
   icons: {
     icon: '/icon.svg',

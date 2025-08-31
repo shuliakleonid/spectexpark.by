@@ -4,8 +4,8 @@ export const dynamic = 'force-static'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'AVTOVYSHKA.BY - Аренда автовышек в Беларуси',
-    short_name: 'AVTOVYSHKA.BY',
+    name: 'SPECTEXPARK.BY - Аренда автовышек в Беларуси',
+    short_name: 'SPECTEXPARK.BY',
     description: 'Аренда автовышек 18м и 28м в Беларуси. 10+ лет опыта, 24/7 обслуживание.',
     start_url: '/',
     display: 'standalone',

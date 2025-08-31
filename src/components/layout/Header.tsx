@@ -105,7 +105,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gradient-primary">
-                AVTOVYSHKA.BY
+                SPECTEXPARK.BY
               </span>
               <span className="text-xs text-neutral-500 dark:text-neutral-400">
                 Ваши задачи - наша высота
