@@ -38,7 +38,7 @@ const Header = () => {
   const menuItems = [
     { name: 'О НАС', href: '#about' },
     { name: 'ВЫШКИ В НАЛИЧИИ', href: '#equipment' },
-    { name: 'ГАЛЛЕРЕЯ', href: '#gallery' },
+    { name: 'ГАЛЛЕРЕЯ 1232', href: '#gallery' },
     { name: 'СВЯЗАТЬСЯ', href: '#contact' },
   ]
 

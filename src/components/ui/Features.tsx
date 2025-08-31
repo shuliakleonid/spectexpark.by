@@ -122,7 +122,7 @@ const Features = () => {
                   element.scrollIntoView({ behavior: 'smooth' })
                 }
               }}
-              className="btn-primary bg-white text-primary hover:bg-neutral-100 shadow-glow hover:shadow-glow-lg"
+              className="btn-white"
             >
               Получить консультацию
             </motion.button>

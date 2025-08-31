@@ -16,12 +16,12 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-primary-50 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950">
       <Header />
       <div className="pt-20">
-        <Hero />
+          <Equipment />
         <div className="relative">
+        {/* <Hero /> */}
           <About />
           <Stats />
           <Features />
-          <Equipment />
           <Pricing />
           <Gallery />
           <Testimonials />

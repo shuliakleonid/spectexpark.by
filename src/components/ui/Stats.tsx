@@ -48,7 +48,7 @@ const Stats = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="heading-2 text-neutral-900 dark:text-white mb-4">
+          <h2 className="heading-2 mb-4">
             Почему выбирают нас
           </h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">

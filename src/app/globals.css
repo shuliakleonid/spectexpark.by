@@ -49,4 +49,46 @@
   .textarea {
     @apply w-full px-4 py-3 bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 rounded-2xl text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 transition-all duration-300 resize-none;
   }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 transform border-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 transform border-0;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 transform border-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold rounded-2xl hover:bg-primary-500 hover:text-white transition-all duration-300 border-0;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-transparent text-primary-600 dark:text-primary-400 font-semibold rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-2xl shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 transform border-0 hover:bg-neutral-100;
+  }
+
+  /* Heading Styles */
+  .heading-1 {
+    @apply text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900 dark:text-white;
+  }
+
+  .heading-2 {
+    @apply text-3xl lg:text-4xl xl:text-5xl font-bold text-neutral-900 dark:text-white;
+  }
+
+  .heading-3 {
+    @apply text-2xl lg:text-3xl font-semibold text-neutral-900 dark:text-white;
+  }
+
+  .heading-4 {
+    @apply text-xl lg:text-2xl font-semibold text-neutral-900 dark:text-white;
+  }
 } 
