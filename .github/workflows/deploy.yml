@@ -1,9 +1,23 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
+    inputs:
+      branch:
+        type: choice
+        description: "Select branch to deploy"
+        required: true
+        options:
+          - main
+          - staging
+      force:
+        type: boolean
+        description: "Run even no changes"
+        required: false
+        default: false
+  push:
+    branches: [main]
+
 
 permissions:
   contents: read
