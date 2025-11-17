@@ -104,10 +104,10 @@ const Header = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-gradient-primary">
+              <span className="text-3xl font-bold text-gradient-primary">
                 SPECTEXPARK.BY
               </span>
-              <span className="text-xs text-neutral-500 dark:text-neutral-400">
+              <span className="text-sm text-neutral-500 dark:text-neutral-400">
                 Ваши задачи - наша высота
               </span>
             </div>

@@ -120,6 +120,7 @@ const Equipment = () => {
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={{ objectPosition: 'center bottom' }}
                 />
                 <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                   {item.price}
@@ -143,7 +144,7 @@ const Equipment = () => {
                       src={image} 
                       alt={`${item.title} - фото ${imgIndex + 2}`}
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
                     />
                   </div>
                 ))}
@@ -240,7 +241,7 @@ const Equipment = () => {
                     alt={`${selectedEquipment.title} - фото ${index + 1}`}
                     width={64}
                     height={64}
-                    className="object-cover w-full h-full"
+                    className="object-cover object-center w-full h-full"
                   />
                 </div>
               ))}
