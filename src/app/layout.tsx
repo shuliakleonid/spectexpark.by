@@ -20,6 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ru" className="scroll-smooth">
       <head>
         <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17748585644"
+          strategy="afterInteractive"
+        />
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-N6QFRCPZWM"
           strategy="afterInteractive"
         />
@@ -28,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+            gtag('config', 'AW-17748585644');
             gtag('config', 'G-N6QFRCPZWM');
           `}
         </Script>
